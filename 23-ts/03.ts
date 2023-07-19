@@ -32,7 +32,7 @@ declare const returnWhatIWant: <T>(func: () => Strictly<T, { id: string }>) => T
  */
 
 /**
- * 为什么没有显示的知道泛型参数类型
+ * 为什么没有显示的指定泛型参数类型
  * 因为你指定了泛型参数,Strictly<T, { id: string }>的T就是你指定的泛型参数,经过Strictly不会报错
  * 如果不指定泛型参数,泛型参数根据你传入的函数返回值的类型类推断
  * 这样经过Strictly就会变成{
@@ -49,3 +49,14 @@ returnWhatIWant(() => (
 ));
 
 
+let value: unknown;
+/**
+ * 类型断言的语法不能用于赋值操作
+ */
+// (value as string) = 'hello';
+value = 'hello';
+
+(value as string).toUpperCase()
+if (typeof value === 'string') {
+  value.toUpperCase();  // OK, 因为现在我们确定了 value 的类型为 'string'
+}

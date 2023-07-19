@@ -41,7 +41,7 @@ type FeatureOptions = OptionsFlags<Features>
 
 /**
  * 在映射类型中，如果某个键映射到never，那么这个键就会被过滤掉
- * 下面这个类型过滤了属性值是string类型的键
+ * 下面这个类型过滤了属性是string类型的键
  */
 type NonStringKeys<T> = {
   [K in keyof T as T[K] extends string ? never : K]: T[K]
@@ -51,7 +51,7 @@ type NonStringKeysOptinos = NonStringKeys<Features>
 
 
 /**
- * 实现内置Record类型
+ * 实现内置Record类型 实现一个对象类型
  */
 
 type MyRecord<K extends keyof any, T> = {
@@ -59,4 +59,33 @@ type MyRecord<K extends keyof any, T> = {
 };
 
 type MYType = MyRecord<'a' | 'b', number>
+
+
+type SomeObj = {
+  a: string,
+  b: number
+}
+/**
+{
+  a: {
+    key: 'a'
+  },
+  b: {
+    key: 'b'
+  }
+}
+然后通过索引访问上述类型
+{
+  key: 'a'
+}|
+{
+  key: 'b'
+}
+ */
+
+export type Example = {
+  [K in keyof SomeObj]: {
+    key: K
+  }
+}[keyof SomeObj]
 export { };

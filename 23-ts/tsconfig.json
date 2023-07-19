@@ -3,9 +3,11 @@
     "module": "commonjs",
     "target": "es6",
     "outDir": "",
-    "strict": true
+    "noImplicitAny": true,
+    "strict": true,
   },
   "files": [
-    "02.ts",
+    "05.ts",
+    "array.ts"
   ]
 }

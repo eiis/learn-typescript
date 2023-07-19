@@ -55,6 +55,10 @@ keys.forEach(key => {
 //   console.log(user[key as keyof typeof user])
 // })
 
+/**
+ * in 用于检查一个属性是否在某一个对象中
+ * @param user 
+ */
 // function isKey<T extends object>(
 //   x: T,
 //   k: PropertyKey
