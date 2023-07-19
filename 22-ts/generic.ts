@@ -65,15 +65,18 @@ type OneOrManyOrNullStrings = OneOrManyOrNull<string>;
 
 //泛型作用于类型不作用于变量  
 /**
- * <Type>叫做类型参数
+ * Type叫做泛型参数
  * @param arg 
  * @returns 
+ * 函数签名包括函数名,函数参数列表,函数返回值类型
+ * 在 TypeScript 中，由于其强大的类型系统，函数签名也可以包含额外的信息，例如泛型参数和参数的可选性
+ * 静态检查是指在编译阶段（也就是代码运行前）进行的代码错误检查
  */
-// function identity<Type>(arg: Type): Type {
-//   return arg;
-// }
+function identity<Type>(arg: Type): Type {
+  return arg;
+}
 
-// let output = identity<string>("myString");
+let output = identity<string>("myString");
 
 
 // function loggingIdentity<Type>(arg: Type[]): Type[] {
@@ -112,15 +115,15 @@ loggingIdentity('1')
 /**
  * 将泛型参数提到接口层面不仅仅是方法单独使用
  */
-interface GenericIdentityFn<Type> {
-  (arg: Type): Type;
-}
+// interface GenericIdentityFn<Type> {
+//   (arg: Type): Type;
+// }
 
-function identity<Type>(arg: Type): Type {
-  return arg;
-}
+// function identity<Type>(arg: Type): Type {
+//   return arg;
+// }
 
-let myIdentity: GenericIdentityFn<number> = identity;
+// let myIdentity: GenericIdentityFn<number> = identity;
 
 
 /**

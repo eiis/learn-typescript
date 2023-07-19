@@ -41,3 +41,5 @@ stringArray = ['cherry', 'banana', 'apple'];
 
 console.log(stringArray)
 
+
+export { };
