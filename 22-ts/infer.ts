@@ -11,15 +11,20 @@ type F<T> = T extends (infer U)[] ? U : T
  * infer用来提取嵌套类型的元素类型
  */
 const arr: Array<F<Array<string>>> = ['1']
+//       ^?
+
 
 const a: F<Array<number>> = 1
+//     ^?
 
 /**
  * 函数返回类型(arg1: T1, arg2: T2, ..., argn: Tn) => R
  */
-type getReturnType<T> = T extends (...args: any[]) => infer R ? R : any;
+type getReturnType<T> = T extends (...args: any) => infer R ? R : any;
 
 type Num = getReturnType<() => number>;
+//     ^?
+
 type Str = getReturnType<(x: string) => string>;
 
 

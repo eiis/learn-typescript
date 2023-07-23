@@ -20,8 +20,10 @@ type Partial<Type> = {
 };
 
 type Partial1 = Partial<Features>
+//        ^?
 
 const obj: Partial1 = {
+//      ^?
   color: 'red',
   age: 1
 }
@@ -36,6 +38,7 @@ type PrefixedMyType = {
 };
 
 type FeatureOptions = OptionsFlags<Features>
+//            ^?
 
 
 
@@ -48,10 +51,12 @@ type NonStringKeys<T> = {
 };
 
 type NonStringKeysOptinos = NonStringKeys<Features>
+//                    ^?
 
 
 /**
  * 实现内置Record类型 实现一个对象类型
+ * in操作符可以遍历一个联合类型或者检查一个对象是否包含一个属性
  */
 
 type MyRecord<K extends keyof any, T> = {
