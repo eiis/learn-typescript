@@ -1,10 +1,12 @@
-// function fromRecords<T>(items: T[], key: keyof T, value: keyof T) {
-//   return Object.fromEntries(items.map(({[key]:k,[value]:v})=>[k, v]));
-// }
+
 
 function fromRecords<T>(items: T[], key: keyof T, value: keyof T) {
-  return Object.fromEntries(items.map(item=>[item[key],item[value]]));
+  return Object.fromEntries(items.map(({[key]:k,[value]:v})=>[k, v]));
 }
+
+// function fromRecords<T>(items: T[], key: keyof T, value: keyof T) {
+//   return Object.fromEntries(items.map(item=>[item[key],item[value]]));
+// }
 
 
 type Person = {
