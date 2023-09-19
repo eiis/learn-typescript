@@ -1,8 +1,11 @@
+// function fromRecords<T>(items: T[], key: keyof T, value: keyof T) {
+//   return Object.fromEntries(items.map(({[key]:k,[value]:v})=>[k, v]));
+// }
+
 function fromRecords<T>(items: T[], key: keyof T, value: keyof T) {
-  return Object.fromEntries(items.map(({[key]:k,[value]:v})=>{
-    return [k, v]
-  }));
+  return Object.fromEntries(items.map(item=>[item[key],item[value]]));
 }
+
 
 type Person = {
   id: string;
