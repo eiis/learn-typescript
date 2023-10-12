@@ -1,6 +1,6 @@
 //联合类型
 type myFavoriteNumber = number | string;
-let is: myFavoriteNumber = 'is ';
+let is: myFavoriteNumber = 'is';
 let shuzi: myFavoriteNumber = 10;
 //不能将类型“{}”分配给类型“string | number”。
 // myFavoriteNumber = {};
@@ -51,4 +51,4 @@ type PersonOnlyname = Pick<Person, 'name'>;
 // const a = ['12'];
 
 //readonly ["12"]
-const a = ['12'] as const;
+// const a = ['12'] as const;
