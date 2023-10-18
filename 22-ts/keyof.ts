@@ -1,14 +1,25 @@
+
+//keyof T 是 string 的子类型
 type obj = {
   x: number,
   y: number
 }
 
 type P = keyof obj
+// type K2 = keyof []
+type K2 = keyof obj[]
+const length:K2 = 'length'
+console.log('length', length)
 type Q = "x" | "y"
 
-
-
 let p: P = 'x'
+
+// 该接口具有一个索引签名
+//这个索引签名表示当StringArray用一个数字进行索引时，它将返回一个字符串
+interface StringArray {
+  [index: number]: string;
+}
+let a:StringArray[1] = 'a'
 
 
 //具有索引类型 keyof返回索引类型
@@ -55,5 +66,22 @@ interface Buzz {
 function fn(arr: Fizz[] | Buzz[]) {
   return (arr).filter(item => item.id < 5)
 }
+
+interface Animal {
+  name: string;
+}
+ 
+interface Dog extends Animal {
+  breed: string;
+}
+ 
+//number 定义索引类型时，会转换为string，所以值类型必须是Animal的子类型
+// Error: indexing with a numeric string might get you a completely separate type of Animal!
+interface NotOkay {
+  [x: string]: Animal;
+  [x: number]: Dog;
+}
+
+export{}
 
 // ([] as Fizz[] | Buzz[]).filter(item => item.id < 5);
