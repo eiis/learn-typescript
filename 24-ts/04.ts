@@ -60,6 +60,6 @@ type T42 = FunctionProperties<Part>; // { updatePart(newName: string): void }
 type T43 = NonFunctionProperties<Part>; // { id: number, name: string, subparts: Part[] }
 
 
-type a<T> = T extends (infer U)[] ? U :never
+type item<T> = T extends (infer U)[] ? U :never
  
-const fugui:a<string[]> = 'fugui'
+const fugui:item<string[]> = '1'
