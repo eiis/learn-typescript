@@ -33,4 +33,7 @@ const cc: ColorfulCircle = {
   radius: 42,
 };
 
+console.log(cc);
+
+
 export { };
